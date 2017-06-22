@@ -1,7 +1,7 @@
-var mysql = require("mysql");
+// var mysql = require("mysql");
 
-module.exports = (mysql) => {
-
+module.exports = (app, path) => {
+    var mysql = require("mysql");
     var connection = mysql.createConnection({
         host: "localhost",
         user: "root",

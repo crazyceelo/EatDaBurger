@@ -15,6 +15,7 @@ app.use(bodyParser.json({
 }));
 
 // view route require
+var mysqlConnect = require("./config/connection.js");
 // api route require
 
 app.listen(PORT, function(){

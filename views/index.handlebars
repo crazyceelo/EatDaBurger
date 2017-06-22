@@ -1,10 +1,10 @@
 <h1>Eat Da Burger</h1>
 
 <ul>
-  {{#each movies}}
+  {{#each burgers}}
     <li>
       <p>
-        {{this.id}}. {{this.movie}}
+        {{this.id}}. {{this.burger}}
 
         <form action="/{{this.id}}?_method=DELETE" method="POST">
           <input type="hidden" name="id" value="{{this.id}}">
