@@ -3,21 +3,46 @@
 // insertOne()
 // updateOne()
 // Export the ORM object in module.exports.
+
+// import the connection.js file to connect to mysql
 var connection = require("./connection.js");
 
-module.exports = {
-// selectAll()
-connection.query("SELECT * FROM burgers;", function(err, data) {
-    if (err) {
+// objects for all sql statement functions (all, create, update)
+// if there is time, use a delete object
+var orm = {
+  all: connection.query("SELECT * FROM burgers;", function(err, data){
+    if(err){
       throw err;
     }
+    console.log(data);
+  })
+}
 
-    res.render("index", { burgers: burger });
-  });
+// example cat orm and model
+// var orm = {
+//   all: function(tableInput, cb) {
+//     var queryString = "SELECT * FROM " + tableInput + ";";
+//     connection.query(queryString, function(err, result) {
+//       if (err) {
+//         throw err;
+//       }
+//       cb(result);
+//     });
+//   },
+  //------
+// var cat = {
+//   all: function(cb) {
+//     orm.all("cats", function(res) {
+//       cb(res);
+//     });
+//   },
+
+
+// selectAll()
 
 // InsertOne()
 // INSERT INTO burgers
 
 // updateOne()
 // UPDATE burgers SET ? WHERE ?
-} 
+

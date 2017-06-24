@@ -1,11 +1,38 @@
 // create the code that will call the ORM 
 // functions using burger specific input for 
 // the ORM.
+
 var orm = require("../config/orm.js");
 
-module.exports = {
+var burger = {
+    all: function(cb){
+        orm.all("burgers", function(res){
+            cb(res);
+        })
+    }
+}
 
     // create the code that will call 
     // the ORM functions using burger 
     // specific input for the ORM. = object related mapping
-}
+
+// example cat orm and model
+// var orm = {
+//   all: function(tableInput, cb) {
+//     var queryString = "SELECT * FROM " + tableInput + ";";
+//     connection.query(queryString, function(err, result) {
+//       if (err) {
+//         throw err;
+//       }
+//       cb(result);
+//     });
+//   },
+  //------
+// var cat = {
+//   all: function(cb) {
+//     orm.all("cats", function(res) {
+//       cb(res);
+//     });
+//   },
+
+module.exports = burger;
