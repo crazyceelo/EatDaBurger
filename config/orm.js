@@ -10,12 +10,9 @@ var connection = require("./connection.js");
 // objects for all sql statement functions (all, create, update)
 // if there is time, use a delete object
 var orm = {
-  all: connection.query("SELECT * FROM burgers;", function(err, data){
-    if(err){
-      throw err;
-    }
-    console.log(data);
-  })
+  all: function(tableInput, cb) {
+    connection.query()
+  }
 }
 
 // example cat orm and model
