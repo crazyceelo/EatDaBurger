@@ -11,9 +11,17 @@ var connection = require("./connection.js");
 // if there is time, use a delete object
 var orm = {
   all: function(tableInput, cb) {
-    connection.query()
+    var queryString = "SELECT * FROM " + tableInput + ";";
+    connection.query(queryString, function(err, result){
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    })
   }
 }
+
+module.exports = orm;
 
 // example cat orm and model
 // var orm = {

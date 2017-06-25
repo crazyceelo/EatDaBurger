@@ -13,7 +13,7 @@
           <button type="submit">regurgitate</button>
         </form>
 
-        {{> cats/delete-cat}}
+        {{!--{{> burger/delete-cat}}--}}
       </li>
     {{/unless}}
   {{/each}}
@@ -22,7 +22,7 @@
 <h2>Devoured Burgers!</h2>
 
 <ul>
-  {{#each cats}}
+  {{#each burgers}}
     {{#if this.devoured}}
       <li>
         {{this.burgerName}}
@@ -32,7 +32,7 @@
           <button type="submit">Devour!</button>
         </form>
 
-        {{> cats/delete-cat}}
+        {{!--{{> burger/delete-cat}}--}}
       </li>
     {{/if}}
   {{/each}}
