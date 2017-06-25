@@ -12,9 +12,19 @@ router.get("/", function(req, res){
         var hbsObject = {
             burgers: data
         };
-        console.log(hbsObject);
+        // console.log(hbsObject);
         res.render("index", hbsObject);
-    })
+    });
+})
+
+router.post("/", function(req, res){
+    burger.create([
+        "burgerName", "devoured"
+    ], [
+        req.body.name, req.body.devoured
+    ], function(){
+        res.redirect("/");
+    });
 })
 
 // export routes for server.js to use

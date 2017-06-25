@@ -9,8 +9,14 @@ var burger = {
         orm.all("burgers", function(res){
             cb(res);
         })
+    },
+
+    create: function(cols, vals, cb){
+        orm.create("burgers", cols, vals, function(res){
+            cb(res);
+        });
     }
-}
+};
 
     // create the code that will call 
     // the ORM functions using burger 
@@ -27,12 +33,6 @@ var burger = {
 //       cb(result);
 //     });
 //   },
-  //------
-// var cat = {
-//   all: function(cb) {
-//     orm.all("cats", function(res) {
-//       cb(res);
-//     });
-//   },
+
 
 module.exports = burger;
