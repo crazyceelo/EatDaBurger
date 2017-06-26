@@ -7,9 +7,7 @@ var mysql = require("mysql");
 // set up mysql connection.
 // createPool()
 var pool = mysql.createPool({
-    connectionLimit : 10,
     host: "127.0.0.1",
-    port: process.env.PORT || 3000,
     user: "root",
     password: "root",
     database: "burgers_db"
