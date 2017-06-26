@@ -15,7 +15,7 @@ router.get("/", function(req, res){
         // console.log(hbsObject);
         res.render("index", hbsObject);
     });
-})
+});
 
 router.post("/", function(req, res){
     burger.create([
@@ -25,19 +25,29 @@ router.post("/", function(req, res){
     ], function(){
         res.redirect("/");
     });
-})
+});
 
 router.put("/:id", function(req, res){
     var condition = "id = " + req.params.id;
 
-    console.log("condition", condition);
+    // console.log("condition", condition);
 
     burger.update({
         devoured: req.body.devoured
     }, condition, function(){
         res.redirect("/");
     })
-})
+});
+
+router.delete("/:id", function(req, res){
+    var condition = "id = " + req.body.id;
+
+    console.log("condition", condition);
+
+    burger.delete(condition, function(){
+        res.redirect("/");
+    });
+});
 
 // export routes for server.js to use
 module.exports = router;

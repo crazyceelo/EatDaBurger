@@ -13,13 +13,13 @@
           <button type="submit">regurgitate</button>
         </form>
 
-        {{!--{{> burger/delete-cat}}--}}
+        {{> burgers/delete-burger}}
       </li>
     {{/unless}}
   {{/each}}
 </ul>
 
-<h2>Devoured Burgers!</h2>
+<h2>Devour Burgers!</h2>
 
 <ul>
   {{#each burgers}}
@@ -32,13 +32,13 @@
           <button type="submit">Devour!</button>
         </form>
 
-        {{!--{{> burger/delete-cat}}--}}
+        {{> burgers/delete-burger}}
       </li>
     {{/if}}
   {{/each}}
 </ul>
 
-<h2>Add Burger</h2>
+<h2>Create Burger</h2>
 <form class="create-update-form" action="/" method="POST">
 
   <div class="form-group">
@@ -48,8 +48,8 @@
 
   <div class="form-group">
     <label for="slee">Devoured</label><br>
-    <input type="radio" name="devoured" value="1" checked> devour<br>
-    <input type="radio" name="devoured" value="0"> regurgetate
+    <input type="radio" name="devoured" value="1" checked> Ready to Devour<br>
+    <input type="radio" name="devoured" value="0"> already devoured
   </div>
 
   <button type="submit">Add Burger</button>
