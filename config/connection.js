@@ -3,16 +3,28 @@
 
 // require the mysql connection
 var mysql = require("mysql");
+var connection;
 
-// set up mysql connection.
-// createPool()
-var pool = mysql.createPool({
-    connectionLimit : 100,
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database: "burgers_db"
-});
+if (process.env.JAWSDB_URL) {
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+}
+else{
+    connection = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "root",
+        database: "burgers_db"
+    });
+}
+
+
+// var pool = mysql.createPool({
+//     connectionLimit : 100,
+//     host: "localhost",
+//     user: "root",
+//     password: "root",
+//     database: "burgers_db"
+// });
 
 // connect to mysql
 // connection.connect(function(err){
@@ -28,4 +40,4 @@ var pool = mysql.createPool({
 // });
 
 // export the connection for ORM to use.
-module.exports = pool;
+module.exports = connection;
