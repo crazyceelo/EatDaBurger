@@ -7,7 +7,7 @@ var mysql = require("mysql");
 // set up mysql connection.
 // createPool()
 var pool = mysql.createPool({
-    host: "127.0.0.1",
+    host: "localhost",
     user: "root",
     password: "root",
     database: "burgers_db"
