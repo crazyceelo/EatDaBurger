@@ -15,6 +15,7 @@ var pool = mysql.createPool({
     database: "burgers_db"
 });
 
+pool.getConnection();
 
 // connect to mysql
 // connection.connect(function(err){
