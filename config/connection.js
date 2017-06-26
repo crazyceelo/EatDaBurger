@@ -40,4 +40,5 @@ else{
 // });
 
 // export the connection for ORM to use.
+connection.connect();
 module.exports = connection;
