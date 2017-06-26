@@ -18,6 +18,19 @@ function printQuestionMarks(num) {
   return arr.toString();
 }
 
+// Helper function for SQL syntax.
+function objToSql(ob) {
+  var arr = [];
+
+  for (var key in ob) {
+    if (Object.hasOwnProperty.call(ob, key)) {
+      arr.push(key + "=" + ob[key]);
+    }
+  }
+
+  return arr.toString();
+}
+
 
 // objects for all sql statement functions (all, create, update)
 // if there is time, use a delete object
@@ -31,6 +44,7 @@ var orm = {
       cb(result);
     })
   },
+
   create: function(table, cols, vals, cb){
     var queryString = "INSERT INTO " + table;
 
@@ -41,7 +55,7 @@ var orm = {
     queryString += printQuestionMarks(vals.length);
     queryString += ") ";
 
-    console.log(queryString);
+    // console.log(queryString);
 
     connection.query(queryString, vals, function(err, result){
       if (err){
@@ -49,6 +63,25 @@ var orm = {
       }
       cb(result);
     })
+  },
+
+  update: function(table, objColVals, condition, cb){
+    var queryString = "UPDATE " + table;
+
+    queryString += " SET ";
+    queryString += objToSql(objColVals);
+    queryString += " WHERE ";
+    queryString += condition;
+
+    console.log(queryString);
+
+    connection.query(queryString, function(err, result){
+      if(err){
+        throw err;
+      }
+
+      cb(result);
+    });
   }
 }
 
